@@ -14,65 +14,52 @@ public class Utility {
 
     public static String zipZap(String str) {
 
-        // Declare variables
+        // Declare Variables
         char charLetter;
-        char charLetter2;
         String returnStr;
-
-        // Initialize a variable
+        
+        // Initialize variable
         returnStr = "";
-
-        /* 
-        if the String parameter is less than length 3, 
-        return the string parameter as no changes can be 
-        made to the word 
-        */ 
+        
+        // if the string parameter is less than length 3
         if (str.length() < 3) {
             returnStr = str;
         }
-
-        // if the length is greater than 3 
         else {
+            // Add the first letter
+            returnStr += str.charAt(0);
 
-            // Loop the number of times as the length of the string parameter minus 2 as to not have any out of range errors
-            for (int intCount = 0; intCount < (str.length() - 1); intCount++){
-                
-                /*
-                let the first variable equal to a letter in str
-                and the second variable equal to the letter after the next one
-                */
+            /* 
+            Loops two times less than the length of str.
+            intCount starts on the index of the second letter
+            and ends on the index of the second last letter. 
+            */
+            
+            for (int intCount = 1; intCount < (str.length() - 1); intCount++) {
                 
                 charLetter = str.charAt(intCount);
-                charLetter2 = str.charAt(intCount + 2);
                 
-                // if the two letters follow the "z_p" structure
-                if (charLetter == 'z' && charLetter2 == 'p') {
-                    
-                    // add "zp" (middle letter is absent) to the string to be returned
-                    returnStr += "zp";
-                    
-                    // increase the value of intCount by 2 as to not reread them
-                    intCount += 2;
-                }
-
-                else {
-                    // add the read letter to the string to be returned
-                    returnStr += charLetter;
-                }
-
-                // if the end of the loop is reached
-                if (str.length() - 2 == intCount) {
-                    charLetter = str.charAt(intCount + 1);
-                    returnStr += charLetter;
-                    charLetter = str.charAt(intCount + 2);
+                // if the previous letter is not z or the letter after is not p
+                if ((str.charAt(intCount - 1) != 'z') || (str.charAt(intCount + 1) != 'p')) {
                     returnStr += charLetter;
                 }
             }
+
+            // Add the last letter
+            returnStr += str.charAt(str.length() - 1);
         }
         
+    
+        // return the new string 
         return returnStr;
+        
     
     }
+
+    
+
+
+
 
 
        
