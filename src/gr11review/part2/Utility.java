@@ -1,10 +1,10 @@
 package gr11review.part2;
-
+import FileReader;
 public class Utility {
 
     /**
     * A method zipZap() that lets you specify a String parameter and that removes the middle 
-    * letter of any instance where the string of length 3 z_p appears, where any letter can be found between z and p
+    *==== letter of any instance where the string of length 3 z_p appears, where any letter can be found between z and p
     *
     * @param str The String in which the program searches for instances of "z_p" 
     * @return A String with the middle letter removed from instances of "z_p"
@@ -54,6 +54,36 @@ public class Utility {
         return returnStr;
         
     
+    }
+    
+
+    public static int[] tenRun(int[] nums) {
+        /**
+        * a method tenRun() that takes an array of numbers
+        * and returns an array that converts all non-multiples of 10
+        * to the most recent multiple of 10
+        *
+        * @param filenametxt the filename  
+        * @return a string; the longest word in the file
+        * @author: Chloe Cheung
+        *
+        */
+
+        // A for loop that loops from the second to the last element in the array
+        for (int intCount = 1; intCount < nums.length; intCount++) {
+            
+            // if the number is not a multiple of 10
+            if (nums[intCount] % 10 != 0){
+
+                // if the previous number is a multiple of 10, assume its value
+                if (nums[intCount - 1] % 10 == 0){
+                    nums[intCount] = nums[intCount - 1];
+                }
+            }
+                
+        }
+
+        return nums;
     }
 
     
