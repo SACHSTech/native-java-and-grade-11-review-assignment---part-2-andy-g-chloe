@@ -1,5 +1,10 @@
 package gr11review.part2;
-import FileReader;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Utility {
 
     /**
@@ -55,6 +60,7 @@ public class Utility {
         
     
     }
+
     
 
     public static int[] tenRun(int[] nums) {
@@ -86,7 +92,73 @@ public class Utility {
         return nums;
     }
 
+public static boolean linearIn(int[] outer, int[] inner) {
+    /**
+    * a method linearIn() that takes two arrays
+    * and returns true or false on whether the elements
+    * of the inner array all appear in the outer 
+    *
+    * @param outer array in which is checked for the elements of the inner array
+    * @param inner array in which its elements are searched for in outer array
+    * @return boolean value 
+    * @author: Chloe Cheung
+    *
+    */
     
+    /** 
+     * Declare variables 
+     * intResumeCount is used for the linear reading of the outer array
+     * intCheck is used for checking if all elements of inner appear in outer
+     */
+    int intResumeCount;
+    int intCheck;
+
+    // initialize variables
+    intCheck = 0;
+    intResumeCount = 0;
+
+    // Loop through every element of inner
+    for (int intCount = 0; intCount < inner.length; intCount++) {
+
+        // Loop through every element of outer
+        for (int intCount2 = intResumeCount; intCount2 < outer.length; intCount2++) {
+            
+            // if element in inner is found in outer
+            if (inner[intCount] == outer[intCount2]){
+                
+                // Variable holds the counter value 
+                intResumeCount = intCount2;
+                
+                // Success counter goes up
+                intCheck += 1;  
+                
+                // exit out of for loop
+                break;
+            }
+        }
+    }
+
+    // if every element in inner is found in outer
+    if (intCheck == inner.length) {
+        
+        // return statement
+        return true;
+    }
+    
+    // Otherwise
+    else {
+
+        // return statement
+        return false;
+    }
+    
+}
+
+
+
+
+
+
 
 
 
