@@ -3,13 +3,13 @@ import java.io.*;
 import java.util.*;
 
 public class Utility {
-  /*
-  public static void main(String[] args) {
-    int i = sumNumbers("abc123abc123");
+  // For testing methods
+  public static void main(String[] args) throws IOException{
+    String i = alphaWord("words.txt");
     System.out.println(i);
   }
 
-  */
+  
 
   /**
     *
@@ -49,6 +49,31 @@ public class Utility {
         runningSum += Integer.parseInt(numbersToAdd);
       }
       return runningSum;
+  }
+
+  public static String alphaWord(String filenametxt) throws IOException{
+    // File reader
+    BufferedReader thefile = new BufferedReader(new FileReader("src/gr11review/part2/" + filenametxt));
+
+    // Declaring variables
+    String strStuff = "";
+
+    // Arraylist for words in file to be sorted later
+    ArrayList<String> fileWords = new ArrayList<String>();
+
+    // Loading every word in file to arraylist
+    while(strStuff != null){
+			strStuff = thefile.readLine();
+			if(strStuff != null){
+				fileWords.add(strStuff);
+			}
+		}
+		thefile.close();
+
+    Collections.sort(fileWords);
+
+    return fileWords.get(0);
+
   }
 
     
