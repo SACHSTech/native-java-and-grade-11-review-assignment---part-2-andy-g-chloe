@@ -8,6 +8,8 @@ public class Utility {
     int[] test = new int[]{2, 1, 1, 2, 1};
     boolean i = canBalance(test);
     System.out.println(i);
+
+    diagonal(12);
   }
 
   
@@ -132,5 +134,38 @@ public class Utility {
 
     // If it iterated through the entire array, and is deemed not to be balanced, reutrn false
     return false; //modify later
+  }
+
+  public static void diagonal(int n) throws IOException{
+
+    // PrintWriter
+    PrintWriter theout = new PrintWriter(new FileWriter("src/gr11review/part2/diagonalOut.txt", true));
+
+    for (int j = n - 1; j >= 0; j--) {
+      for (int i = 0; i < n; i++) {
+        if (i < j) {
+          theout.print("0");
+        }
+        else if (i == j) {
+          theout.print("1");
+        }
+        else {
+          theout.print("2");
+        }
+
+        // If its not the last column, print a comma
+        if (i != n - 1) {
+          theout.print(",");
+        }
+
+        // If it is the last column, print a new line
+        // If its the last row, don't print a new line
+        else if (j != 0){
+          theout.println("");
+        }
+      }
+    }
+
+    theout.close();
   }
 }
