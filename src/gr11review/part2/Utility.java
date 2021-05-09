@@ -3,26 +3,17 @@ import java.io.*;
 import java.util.*;
 
 public class Utility {
-  // For testing methods
-  public static void main(String[] args) throws IOException{
-    int[] test = new int[]{2, 1, 1, 2, 1};
-    boolean i = canBalance(test);
-    System.out.println(i);
-
-    diagonal(12);
-  }
-
-  
 
   /**
-    *
-    *
-    *
-    * @param str
-    * @return
-    * @author: Andy Guo
-    *
-    */
+  *
+  * Given a string, it returns the sum of all of the integers within the string
+  *
+  * @param str  The input string
+  * @return an integer value representing the sum of the integers within the string
+  * @author: Andy Guo
+  *
+  */
+
   public static int sumNumbers(String str) {
 
       // Declaring variables
@@ -30,6 +21,7 @@ public class Utility {
       String[] strArray = str.split("");
       String numbersToAdd = "";
 
+      // Iterating through each char within the String
       for (String i : strArray) {
 
         // If that char in the string is a number
@@ -41,18 +33,36 @@ public class Utility {
 
         // If that char is anything but a number
         else {
+          // If the length of numbersToAdd is not 0, meaning the previous char was an int, add that number to the running total
           if (numbersToAdd.length() != 0) {
             runningSum += Integer.parseInt(numbersToAdd);
           }
+
+          // Reset numbersToAdd to a blank String
           numbersToAdd = "";
         }
 
       }
+
+      // If the last few chars were an int, add to the running total
       if (numbersToAdd.length() != 0) {
         runningSum += Integer.parseInt(numbersToAdd);
       }
+
+      // Return the running total
       return runningSum;
   }
+
+
+  /**
+  *
+  * Given the name of a file, retunrs the word that comes first alphabetically within the file
+  *
+  * @param filenametxt  The file name
+  * @return a String that is the first word alphabetically within the file
+  * @author: Andy Guo
+  *
+  */
 
   public static String alphaWord(String filenametxt) throws IOException{
     // File reader
@@ -78,6 +88,18 @@ public class Utility {
     return fileWords.get(0);
 
   }
+
+
+  /**
+  *
+  * Given an array, when the desired value appears, when that value is alone, it is replaced by whichever value to its left or right is greater
+  *
+  * @param nums  The input array
+  * @param value  The value to be changed
+  * @return an integer array containing the changes
+  * @author: Andy Guo
+  *
+  */
 
   public static int[] notAlone(int[] nums, int value) {
     // Declaring variables
@@ -112,6 +134,17 @@ public class Utility {
     return nums;
   }
 
+
+  /**
+  *
+  * Given an array, it returns a boolean that says whether or not the array can be split to where the sum of each side is equal
+  *
+  * @param nums  The input array
+  * @return a boolean value that says whether or not the array can be split such that the sum of both sides are equal
+  * @author: Andy Guo
+  *
+  */
+
   public static boolean canBalance(int[] nums) {
     
     // Declaring variables
@@ -135,6 +168,20 @@ public class Utility {
     // If it iterated through the entire array, and is deemed not to be balanced, reutrn false
     return false; //modify later
   }
+
+
+  /**
+  *
+  * Given an integer n, it writes onto a file a 2D array, size n * n, where:
+  *   The top right to bottom left is connected by a straight diagonal line of 1
+  *   Anything below this diagonal line is a 2
+  *   Anything above this diagonal line is a 0
+  *   Each value is separated by only a comma
+  * 
+  * @param n  The size of the array
+  * @author: Andy Guo
+  *
+  */
 
   public static void diagonal(int n) throws IOException{
 
