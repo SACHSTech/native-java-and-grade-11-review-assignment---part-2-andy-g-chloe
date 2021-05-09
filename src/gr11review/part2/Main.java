@@ -5,6 +5,7 @@ package gr11review.part2;
 javac -d bin src/gr11review/part2/Utility.java
 javac -d bin src/gr11review/part2/Main.java
 java -classpath bin gr11review.part2.Main
+java -classpath bin gr11review.part2.Utility
 
 */
 

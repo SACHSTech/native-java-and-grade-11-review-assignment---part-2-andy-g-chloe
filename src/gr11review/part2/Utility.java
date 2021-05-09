@@ -5,8 +5,11 @@ import java.util.*;
 public class Utility {
   // For testing methods
   public static void main(String[] args) throws IOException{
-    String i = alphaWord("words.txt");
-    System.out.println(i);
+    int[] test = new int[]{1, 2, 3, 2, 5, 2};
+    int[] i = notAlone(test, 2);
+    for (int j : i) {
+      System.out.println(j);
+    }
   }
 
   
@@ -53,7 +56,7 @@ public class Utility {
 
   public static String alphaWord(String filenametxt) throws IOException{
     // File reader
-    BufferedReader thefile = new BufferedReader(new FileReader("src/gr11review/part2/" + filenametxt));
+    BufferedReader thefile = new BufferedReader(new FileReader(filenametxt));
 
     // Declaring variables
     String strStuff = "";
@@ -76,5 +79,36 @@ public class Utility {
 
   }
 
-    
+  public static int[] notAlone(int[] nums, int value) {
+    // Declaring variables
+    int largeNum;
+
+    // Loops from 2nd index to 2nd last index
+    for (int i = 1; i < nums.length - 1; i++) {
+
+      // If that number is not the number we are looking for, continue
+      if (nums[i] != value) {
+        continue;
+      }
+
+      // If that number is not alone, continue
+      else if (nums[i] == nums[i - 1] || nums[i] == nums[i + 1]){
+        continue;
+      }
+
+      // If that number is alone, replace with the larger number that surrounds it
+      else {
+        largeNum = nums[i - 1];
+        if (nums[i + 1] > largeNum) {
+          largeNum = nums[i + 1];
+        }
+
+        nums[i] = largeNum;
+      }
+
+    }
+
+
+    return nums;
+  }
 }
