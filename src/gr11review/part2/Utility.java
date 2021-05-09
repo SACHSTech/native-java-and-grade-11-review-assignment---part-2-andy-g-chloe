@@ -5,11 +5,9 @@ import java.util.*;
 public class Utility {
   // For testing methods
   public static void main(String[] args) throws IOException{
-    int[] test = new int[]{1, 2, 3, 2, 5, 2};
-    int[] i = notAlone(test, 2);
-    for (int j : i) {
-      System.out.println(j);
-    }
+    int[] test = new int[]{2, 1, 1, 2, 1};
+    boolean i = canBalance(test);
+    System.out.println(i);
   }
 
   
@@ -110,5 +108,29 @@ public class Utility {
 
 
     return nums;
+  }
+
+  public static boolean canBalance(int[] nums) {
+    
+    // Declaring variables
+    int sumLeft = 0;
+    int sumRight = 0;
+
+    // Setting the sum of the rigth side as the sum of the entire array
+    for (int i : nums) {
+      sumRight += i;
+    }
+
+    // This array shifts one number at a time in the sume from the right to left and checks to see if balanced
+    for (int i : nums) {
+      sumRight -= i;
+      sumLeft += i;
+      if (sumRight == sumLeft) {
+        return true;
+      }
+    }
+
+    // If it iterated through the entire array, and is deemed not to be balanced, reutrn false
+    return false; //modify later
   }
 }
