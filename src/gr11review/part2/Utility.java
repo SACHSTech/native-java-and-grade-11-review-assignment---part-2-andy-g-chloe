@@ -3,7 +3,9 @@ package gr11review.part2;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Utility {
 
@@ -59,6 +61,36 @@ public class Utility {
         return returnStr;
         
     
+    }
+
+    public static String longestWord(String filenametxt) {
+        BufferedReader br = null; 
+        
+        String result = "";
+        try {
+            File file = new File(filenametxt);
+            br = new BufferedReader(new FileReader(file));
+
+            String s;
+            while ((s = br.readLine()) != null) {
+                if (result.length() <= s.length()) {
+                    result = s;
+                }
+            } 
+        } catch (IOException e) {
+            System.err.println("Cannot read file: " + e.getLocalizedMessage());
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return result;
     }
 
     
@@ -152,20 +184,43 @@ public static boolean linearIn(int[] outer, int[] inner) {
         return false;
     }
     
+
 }
 
+public static void pascalTri(int i, int j) {
+    int[][] p = new int[i][j];
+
+    try {
+        File file = new File("pascalOut.txt");
+        FileWriter myWriter = null;
+        for (int intCount = 0; intCount < i; intCount++) {
+            p[intCount][0] = 1;
+        }
+        for (int intCount = 0; intCount < j; intCount++) {
+            p[0][intCount] = 1;
+        }
+        for (int intCount = 1; intCount < i; intCount++) {
+            for (int intCount2 = 1; intCount2 < j; intCount++) {
+                p[intCount][intCount2] = p[intCount - 1][intCount2] + p[intCount][intCount2 - 1];
+            }
+
+        }
+        myWriter = new FileWriter(file);
+
+        myWriter.write(Arrays.deepToString(p));
+        System.out.println(Arrays.deepToString(p));
+        myWriter.close();
+
+    } 
+    catch (IOException e) {
+        e.printStackTrace();
+    }
 
 
-
-
-
-
-
-
-
-
-       
     
+    
+
+}
 
     
 }
