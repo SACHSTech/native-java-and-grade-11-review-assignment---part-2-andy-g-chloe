@@ -5,20 +5,22 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+import java.io.PrintWriter;
+
+
+/**
+* A method zipZap() that lets you specify a String parameter and that removes the middle 
+* letter of any instance where the string of length 3 z_p appears, where any letter can be found between z and p
+*
+* @param str The String in which the program searches for instances of "z_p" 
+* @return A String with the middle letter removed from instances of "z_p"
+* @author: Chloe Cheung
+*
+*/
 
 public class Utility {
 
-    /**
-    * A method zipZap() that lets you specify a String parameter and that removes the middle 
-    *==== letter of any instance where the string of length 3 z_p appears, where any letter can be found between z and p
-    *
-    * @param str The String in which the program searches for instances of "z_p" 
-    * @return A String with the middle letter removed from instances of "z_p"
-    * @author: Chloe Cheung
-    *
-    */
-
+    
     public static String zipZap(String str) {
 
         // Declare Variables
@@ -63,23 +65,49 @@ public class Utility {
     
     }
 
+/**
+* A method longestWord() that reads a text file and retuns the longest word
+*
+* @param filenametxt The text file from which the words are read
+* @return A String with longest word in the file
+* @author: Chloe Cheung
+*
+*/
     public static String longestWord(String filenametxt) {
+
+        // Buffered Reader
         BufferedReader br = null; 
         
+        // Initalize result variable 
         String result = "";
+
+        // try statement
         try {
+
+            // Create buffered reader
             File file = new File(filenametxt);
             br = new BufferedReader(new FileReader(file));
 
-            String s;
-            while ((s = br.readLine()) != null) {
-                if (result.length() <= s.length()) {
-                    result = s;
+            // Create string variable
+            String strWord;
+
+
+            while ((strWord = br.readLine()) != null) {
+                // If the variable holding the longest word is shorter than the word it read
+                if (result.length() <= strWord.length()) {
+                    // The read word becomes the longest word
+                    result = strWord;
                 }
             } 
-        } catch (IOException e) {
+
+        // catch statement
+        } 
+        catch (IOException e) {
             System.err.println("Cannot read file: " + e.getLocalizedMessage());
-        } finally {
+        } 
+
+        // finally statement
+        finally {
             if (br != null) {
                 try {
                     br.close();
@@ -92,20 +120,21 @@ public class Utility {
 
         return result;
     }
-
     
+/**
+* a method tenRun() that takes an array of numbers
+* and returns an array that converts all non-multiples of 10
+* to the most recent multiple of 10
+*
+* @param filenametxt the filename  
+* @return a string; the longest word in the file
+* @author: Chloe Cheung
+*
+*/
+
 
     public static int[] tenRun(int[] nums) {
-        /**
-        * a method tenRun() that takes an array of numbers
-        * and returns an array that converts all non-multiples of 10
-        * to the most recent multiple of 10
-        *
-        * @param filenametxt the filename  
-        * @return a string; the longest word in the file
-        * @author: Chloe Cheung
-        *
-        */
+
 
         // A for loop that loops from the second to the last element in the array
         for (int intCount = 1; intCount < nums.length; intCount++) {
@@ -124,18 +153,19 @@ public class Utility {
         return nums;
     }
 
+/**
+* a method linearIn() that takes two arrays
+* and returns true or false on whether the elements
+* of the inner array all appear in the outer 
+*
+* @param outer array in which is checked for the elements of the inner array
+* @param inner array in which its elements are searched for in outer array
+* @return boolean value 
+* @author: Chloe Cheung
+*
+*/
+
 public static boolean linearIn(int[] outer, int[] inner) {
-    /**
-    * a method linearIn() that takes two arrays
-    * and returns true or false on whether the elements
-    * of the inner array all appear in the outer 
-    *
-    * @param outer array in which is checked for the elements of the inner array
-    * @param inner array in which its elements are searched for in outer array
-    * @return boolean value 
-    * @author: Chloe Cheung
-    *
-    */
     
     /** 
      * Declare variables 
@@ -187,36 +217,67 @@ public static boolean linearIn(int[] outer, int[] inner) {
 
 }
 
-public static void pascalTri(int i, int j) {
+/**
+    * a method pascalTri() that takes the row and column dimensions
+    * and writes the pascal triangle of those dimensions to a file called
+    * pascalOut.txt
+    *
+    * @param i row integer
+    * @param j column integer
+    * @author: Chloe Cheung
+    *
+    */
+
+public static void pascalTri(int i, int j) throws IOException {
+    
+    // Create array
     int[][] p = new int[i][j];
 
-    try {
-        File file = new File("pascalOut.txt");
-        FileWriter myWriter = null;
-        for (int intCount = 0; intCount < i; intCount++) {
-            p[intCount][0] = 1;
-        }
-        for (int intCount = 0; intCount < j; intCount++) {
-            p[0][intCount] = 1;
-        }
-        for (int intCount = 1; intCount < i; intCount++) {
-            for (int intCount2 = 1; intCount2 < j; intCount++) {
-                p[intCount][intCount2] = p[intCount - 1][intCount2] + p[intCount][intCount2 - 1];
-            }
-
-        }
-        myWriter = new FileWriter(file);
-
-        myWriter.write(Arrays.deepToString(p));
-        System.out.println(Arrays.deepToString(p));
-        myWriter.close();
-
-    } 
-    catch (IOException e) {
-        e.printStackTrace();
+    // For writing to file
+    PrintWriter file = new PrintWriter(new FileWriter("C:\\Users\\chloe\\Desktop\\native-java-and-grade-11-review-assignment---part-2-andy-g-chloe\\src\\gr11review\\test2\\pascalOut.txt", false));
+    
+    // Add 1's to the entire first row
+    for (int intCount = 0; intCount < i; intCount++) {
+        p[intCount][0] = 1;
     }
 
+    // Add 1's to the entire first column
+    for (int intCount = 0; intCount < j; intCount++) {
+        p[0][intCount] = 1;
+    }
 
+    // Add loop through every column
+    for (int intCount = 1; intCount < j; intCount++) {
+        // Loop through every row
+        for (int intCount2 = 1; intCount2 < i; intCount2++) {
+            // each element is the sum of the element on the row on top and the column on the left
+            p[intCount2][intCount] = p[intCount2 - 1][intCount] + p[intCount2][intCount - 1];
+        }
+
+    }
+
+    // loop through each row
+    for (int intCount = 0; intCount < i; intCount++) {
+    
+        // loop through each column
+        for (int intCount2 = 0; intCount2 < j; intCount2++) {
+    
+            // Write each element to file    
+            file.print(p[intCount][intCount2]);
+
+            // Elements in the same row are seperated by commas
+            if (intCount2 != j - 1) {
+                file.print(",");
+            }
+            
+        }
+        // Rows are seperated into the next line
+        file.println("");
+
+    }
+    // Close the printwriter file
+    file.close();
+    
     
     
 
