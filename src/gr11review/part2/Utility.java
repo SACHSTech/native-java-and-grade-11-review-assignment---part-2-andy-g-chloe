@@ -3,7 +3,6 @@ import java.io.*;
 import java.util.*;
 
 public class Utility {
-
   /**
   *
   * Given a string, it returns the sum of all of the integers within the string
@@ -282,51 +281,26 @@ public class Utility {
   * @author: Chloe Cheung
   *
   */
-  public static String longestWord(String filenametxt) {
+  public static String longestWord(String filenametxt) throws IOException {
 
     // Buffered Reader
-    BufferedReader br = null; 
+    BufferedReader br = new BufferedReader(new FileReader(filenametxt));
       
     // Initalize result variable 
     String result = "";
 
-    // try statement
-    try {
-
-      // Create buffered reader
-      File file = new File(filenametxt);
-      br = new BufferedReader(new FileReader(file));
-
-      // Create string variable
-      String strWord;
+    // Create string variable
+    String strWord;
 
 
-      while ((strWord = br.readLine()) != null) {
-        // If the variable holding the longest word is shorter than the word it read
-        if (result.length() <= strWord.length()) {
-          // The read word becomes the longest word
-          result = strWord;
-        }
-      } 
-
-    // catch statement
-    } 
-    catch (IOException e) {
-      System.err.println("Cannot read file: " + e.getLocalizedMessage());
-    } 
-
-    // finally statement
-    finally {
-      if (br != null) {
-        try {
-          br.close();
-        } catch (IOException e) {
-          // TODO Auto-generated catch block
-          e.printStackTrace();
-        }
+    while ((strWord = br.readLine()) != null) {
+      // If the variable holding the longest word is shorter than the word it read
+      if (result.length() <= strWord.length()) {
+        // The read word becomes the longest word
+        result = strWord;
       }
     }
-
+      
     return result;
   }
     
@@ -442,7 +416,7 @@ public class Utility {
     int[][] p = new int[i][j];
 
     // For writing to file
-    PrintWriter file = new PrintWriter(new FileWriter("C:\\Users\\chloe\\Desktop\\native-java-and-grade-11-review-assignment---part-2-andy-g-chloe\\src\\gr11review\\test2\\pascalOut.txt", false));
+    PrintWriter file = new PrintWriter(new FileWriter("src/gr11review/part2/pascalOut.txt", false));
     
     // Add 1's to the entire first row
     for (int intCount = 0; intCount < i; intCount++) {
