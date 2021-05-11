@@ -188,7 +188,10 @@ public class Utility {
     // PrintWriter
     PrintWriter theout = new PrintWriter(new FileWriter("src/gr11review/part2/diagonalOut.txt", false));
 
+    // j counts down from the size of the square to 0; every time it moves down a row, j counts the index where the 1 should be
     for (int j = n - 1; j >= 0; j--) {
+
+      // i counts the number of rows
       for (int i = 0; i < n; i++) {
         if (i < j) {
           theout.print("0");
@@ -212,6 +215,7 @@ public class Utility {
       }
     }
 
+    // Close the file
     theout.close();
   }
 }
