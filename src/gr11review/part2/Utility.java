@@ -186,7 +186,7 @@ public class Utility {
   public static void diagonal(int n) throws IOException{
 
     // PrintWriter
-    PrintWriter theout = new PrintWriter(new FileWriter("src/gr11review/part2/diagonalOut.txt", true));
+    PrintWriter theout = new PrintWriter(new FileWriter("src/gr11review/part2/diagonalOut.txt", false));
 
     for (int j = n - 1; j >= 0; j--) {
       for (int i = 0; i < n; i++) {
@@ -206,8 +206,7 @@ public class Utility {
         }
 
         // If it is the last column, print a new line
-        // If its the last row, don't print a new line
-        else if (j != 0){
+        else {
           theout.println("");
         }
       }
