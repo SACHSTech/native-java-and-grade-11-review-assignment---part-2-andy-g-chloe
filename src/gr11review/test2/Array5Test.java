@@ -9,7 +9,7 @@ import java.io.*;
 
 public class Array5Test {
 
-    private final String absPath = "/Users/eric/ICS4U-native-gr11review-part2/src/gr11review/part2/";
+    private final String absPath = "C:\\Users\\chloe\\Desktop\\native-java-and-grade-11-review-assignment---part-2-andy-g-chloe\\src\\gr11review\\test2\\";
 
 
     String getResultString()throws IOException{
