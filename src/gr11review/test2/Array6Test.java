@@ -9,7 +9,8 @@ import java.io.*;
 
 public class Array6Test {
 
-    private final String absPath = "src/gr11review/part2/";
+    private String filePath = new File("").getAbsolutePath();
+    private final String absPath = filePath+ "/";
 
 
     String getResultString()throws IOException{
