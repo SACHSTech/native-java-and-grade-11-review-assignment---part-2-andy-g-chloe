@@ -12,7 +12,7 @@ public class Array5Test {
 
     //private final String absPath = "/Users/eric/ICS4U-native-gr11review-part2/src/gr11review/part2/";
     private String filePath = new File("").getAbsolutePath();
-    private final String absPath = filePath+ "/";
+    private final String absPath = filePath+ "/src/gr11review/part2/";
 
 
     String getResultString()throws IOException{
