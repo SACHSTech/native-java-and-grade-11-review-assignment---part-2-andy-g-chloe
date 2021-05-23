@@ -1,0 +1,104 @@
+{
+  "tests": [
+    {
+      "name": "Array1",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Array1Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Array1Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Array2",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Array2Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Array2Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Array3",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Array3Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Array3Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Array4",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Array4Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Array4Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Array5",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Array5Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Array5Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Array6",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Array6Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Array6Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "FileIO1",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/FileIO1Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.FileIO1Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "FileIO2",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/FileIO2Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.FileIO2Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Methods1",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Methods1Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Methods1Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    },
+    {
+      "name": "Methods2",
+      "setup": "javac -d bin src/gr11review/part2/Utility.java; javac -d bin -sourcepath src -classpath lib/junit-platform-console-standalone-1.7.0-M1.jar src/gr11review/test2/Methods2Test.java",
+      "run": "java -jar lib/junit-platform-console-standalone-1.7.0-M1.jar --class-path bin -c gr11review.test2.Methods2Test",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 4
+    }
+  ]
+}
